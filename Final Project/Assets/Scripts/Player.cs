@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMotion : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
     CharacterController cController;
     float rotationAroundY = 0;
     float rotationAroundX = 0;
@@ -11,16 +14,14 @@ public class PlayerMotion : MonoBehaviour
     float horizontalInput;
     float speed = 5f;
     public GameObject aCamera; // public means that it must be connected to some object in Unity
-    //AudioSource sound;
 
-    // Start is called before the first frame update
     void Start()
     {
         cController = GetComponent<CharacterController>(); // connect to Character controller of player
-        //sound = GetComponent<AudioSource>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         float deltaz;
@@ -41,5 +42,17 @@ public class PlayerMotion : MonoBehaviour
         Vector3 motion = new Vector3(0, -0.5f, deltaz);// always forward in Local coordinates
         motion = transform.TransformDirection(motion); // transforms motion to GLOBAL coordinates
         cController.Move(motion);// gets vector in GLOBAL coordinates
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= 20;
+        healthBar.SetHelath(currentHealth);
     }
 }

@@ -10,8 +10,12 @@ public class InventoryUI : MonoBehaviour
         moneyText = GetComponent<TextMeshProUGUI>();
     }
 
+    private void Update()
+    {
+        PlayerPrefs.SetString("money", moneyText.text.ToString());
+    }
     public void UpdateMoneyText(PlayerInventory playerInventory)
     {
         moneyText.text = moneyString + playerInventory.NumberOfMoney.ToString() + "$";
-    }
+    }    
 }

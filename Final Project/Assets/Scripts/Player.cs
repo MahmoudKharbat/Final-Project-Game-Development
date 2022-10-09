@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    //public int maxHealth = 100;
+    public static int currentHealth;
     public HealthBar healthBar;
     CharacterController cController;
     float rotationAroundY = 0;
@@ -18,8 +19,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         cController = GetComponent<CharacterController>(); // connect to Character controller of player
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        //currentHealth = maxHealth;
+        //healthBar.SetMaxHealth(maxHealth);
+        currentHealth = GlobalManager.currentHealth;
+        healthBar.SetMaxHealth(currentHealth);
     }
 
     void Update()
@@ -47,12 +50,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
+            //PlayerPrefs.SetInt("health", currentHealth);
         }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= 20;
-        healthBar.SetHelath(currentHealth);
+        healthBar.SetHealth(currentHealth);
     }
+
+    
 }

@@ -21,7 +21,7 @@ public class GlobalManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        //healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     // Start is called before the first frame update

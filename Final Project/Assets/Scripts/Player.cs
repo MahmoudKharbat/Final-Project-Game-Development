@@ -46,12 +46,12 @@ public class Player : MonoBehaviour
         motion = transform.TransformDirection(motion); // transforms motion to GLOBAL coordinates
         cController.Move(motion);// gets vector in GLOBAL coordinates
 
-
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
             //PlayerPrefs.SetInt("health", currentHealth);
-        }
+        }*/
     }
 
     public void TakeDamage(int damage)

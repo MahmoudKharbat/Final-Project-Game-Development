@@ -7,7 +7,8 @@ public class Fire : MonoBehaviour
     public GameObject aCamera;
     public GameObject target;
     public GameObject startPoint;
-    public GameObject enemy;
+    public GameObject[] normal_people;
+    public GameObject[] enemies;
     private LineRenderer lr;
     AudioSource sound;
 
@@ -30,8 +31,16 @@ public class Fire : MonoBehaviour
                 sound.Play();
                 target.transform.position = hit.point;
                 StartCoroutine(FireFlash());
-                Animator animator = enemy.GetComponent<Animator>();
-                animator.SetInteger("state", 1);
+                for (int i = 0; i < normal_people.Length; i++)
+                {
+                    if(normal_people[i] != null)
+                    {
+                        print("people" + i + " is now running");
+                        Animator animator = normal_people[i].GetComponent<Animator>();
+                        animator.SetInteger("state", 1);
+                    }   
+                }
+                
                 /*
                 if (hit.collider.gameObject == enemy.gameObject)
                 {

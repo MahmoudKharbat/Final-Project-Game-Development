@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ch23 : MonoBehaviour
+public class npc_script: MonoBehaviour
 {
     private NavMeshAgent agent;
     public GameObject target;
@@ -32,11 +32,9 @@ public class Ch23 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("reached target");
-        Destroy(currNpc);
-        /* if (target.gameObject == other.gameObject)
+        if (target.gameObject == other.gameObject)
          {
              Destroy(currNpc);
-         }*/
+         }
     }
 }

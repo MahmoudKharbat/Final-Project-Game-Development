@@ -7,6 +7,7 @@ public class Fire : MonoBehaviour
     public GameObject aCamera;
     public GameObject target;
     public GameObject startPoint;
+    public GameObject enemy;
     private LineRenderer lr;
     AudioSource sound;
 
@@ -28,7 +29,15 @@ public class Fire : MonoBehaviour
             {
                 sound.Play();
                 target.transform.position = hit.point;
-                StartCoroutine(FireFlash());   
+                StartCoroutine(FireFlash());
+                Animator animator = enemy.GetComponent<Animator>();
+                animator.SetInteger("state", 1);
+                /*
+                if (hit.collider.gameObject == enemy.gameObject)
+                {
+                    Animator animator = enemy.GetComponent<Animator>();
+                    animator.SetInteger("state", 1);
+                }*/
             }
         }
     }

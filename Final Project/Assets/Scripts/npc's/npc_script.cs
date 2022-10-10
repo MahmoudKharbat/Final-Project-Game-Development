@@ -21,6 +21,7 @@ public class npc_script: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (agent.enabled)
             agent.SetDestination(target.transform.position);
         if (animator.GetInteger("state") == 1)

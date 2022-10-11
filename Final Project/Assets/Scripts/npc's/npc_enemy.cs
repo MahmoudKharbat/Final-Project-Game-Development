@@ -6,11 +6,16 @@ using UnityEngine.AI;
 public class npc_enemy : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public GameObject target;
-    public GameObject currNpc;
+    public GameObject player_target;
     Animator animator;
+    private int health = 100; 
 
-    // Start is called before the first frame update
+    public int Health 
+    {
+        get { return health; }   // get method
+        set { health = value; print("you'r health is" + health); }  // set method
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -18,24 +23,20 @@ public class npc_enemy : MonoBehaviour
         agent.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (agent.enabled)
-            agent.SetDestination(target.transform.position);
+            agent.SetDestination(player_target.transform.position);
+
         if (animator.GetInteger("state") == 1)
         {
             agent.enabled = true;
         }
-    }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (target.gameObject == other.gameObject)
+        if(health == 0)
         {
-            Destroy(currNpc);
+            agent.enabled = false;
+            animator.SetInteger("state", 2);
         }
     }
 }

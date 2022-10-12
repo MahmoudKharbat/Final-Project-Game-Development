@@ -30,7 +30,8 @@ public class Fire : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(aCamera.transform.position,aCamera.transform.forward,out hit))
             {
-                game_background_music.SetActive(true);
+                if(game_background_music != null)
+                    game_background_music.SetActive(true);
                 sound.Play();
                 target.transform.position = hit.point;
                 StartCoroutine(FireFlash());

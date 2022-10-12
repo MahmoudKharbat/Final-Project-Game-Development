@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     float horizontalInput;
     float speed = 5f;
     public GameObject aCamera; // public means that it must be connected to some object in Unity
-    public GameObject game_background_music;
 
     void Start()
     {
@@ -59,7 +58,6 @@ public class Player : MonoBehaviour
     {
         if (currentHealth == 0)
         {
-            game_background_music.SetActive(false);
             SceneManager.LoadScene(3);
         }
             

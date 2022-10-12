@@ -12,6 +12,7 @@ public class Fire : MonoBehaviour
     public GameObject game_background_music;
     private LineRenderer lr;
     AudioSource sound;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -37,23 +38,48 @@ public class Fire : MonoBehaviour
                 {
                     if(normal_people[i] != null)
                     {
-                        Animator animator = normal_people[i].GetComponent<Animator>();
+                        animator = normal_people[i].GetComponent<Animator>();
                         animator.SetInteger("state", 1);
                     }   
                 }
 
-                
-                for (int i = 0; i < enemies.Length; i++) 
+                /* First Enemy*/
+                animator = enemies[0].GetComponent<Animator>();
+                if(animator.GetInteger("state") != 2)
                 {
-                    if (enemies[i] != null)
-                    {
-                        Animator animator = enemies[i].GetComponent<Animator>();
-                        animator.SetInteger("state", 1);
-                        if (hit.collider.gameObject == enemies[i].gameObject)
-                        {
-                            enemies[i].GetComponent<npc_enemy>().Health -= 20;
-                        }
-                    }
+                    animator.SetInteger("state", 1);
+                    if (hit.collider.gameObject == enemies[0].gameObject)
+                        enemies[0].GetComponent<npc_enemy1>().Health -= 20;
+                }
+                
+
+                /* Second Enemy*/
+                animator = enemies[1].GetComponent<Animator>();
+                if (animator.GetInteger("state") != 2)
+                {
+                    animator.SetInteger("state", 1);
+                    if (hit.collider.gameObject == enemies[1].gameObject) 
+                        enemies[1].GetComponent<npc_enemy2>().Health -= 20;
+                }
+                
+                
+                /* Third Enemy*/
+                animator = enemies[2].GetComponent<Animator>();
+                if (animator.GetInteger("state") != 2)
+                {
+                    animator.SetInteger("state", 1);
+                    if (hit.collider.gameObject == enemies[2].gameObject)
+                        enemies[2].GetComponent<npc_enemy3>().Health -= 20;
+                }
+                    
+                /* Fourth Enemy*/
+                animator = enemies[3].GetComponent<Animator>();
+                if (animator.GetInteger("state") != 2)
+                {
+                    animator.SetInteger("state", 1);
+                    if (hit.collider.gameObject == enemies[3].gameObject)
+                        enemies[3].GetComponent<npc_enemy4>().Health -= 20;
+
                 }
             }
         }

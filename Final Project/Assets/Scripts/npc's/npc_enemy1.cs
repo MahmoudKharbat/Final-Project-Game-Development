@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class npc_enemy : MonoBehaviour
+public class npc_enemy1 : MonoBehaviour
 {
     private NavMeshAgent agent;
     public GameObject player_target;
+    public GameObject rifle;
     Animator animator;
     private int health = 100; 
-
+    
     public int Health 
     {
         get { return health; }   // get method
-        set { health = value; print("you'r health is" + health); }  // set method
+        set { health = value; }  // set method
     }
 
     void Start()
@@ -31,11 +32,14 @@ public class npc_enemy : MonoBehaviour
         if (animator.GetInteger("state") == 1)
         {
             agent.enabled = true;
+            rifle.SetActive(true);
         }
 
         if(health == 0)
         {
+            print("enemy1 you are dead");
             agent.enabled = false;
+            rifle.SetActive(false);
             animator.SetInteger("state", 2);
         }
     }

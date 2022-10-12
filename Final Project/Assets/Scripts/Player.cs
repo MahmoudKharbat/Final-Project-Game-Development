@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     float horizontalInput;
     float speed = 5f;
     public GameObject aCamera; // public means that it must be connected to some object in Unity
+    public GameObject game_background_music;
 
     void Start()
     {
@@ -56,7 +57,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= 20;
+        if (currentHealth == 0)
+        {
+            game_background_music.SetActive(false);
+            SceneManager.LoadScene(3);
+        }
+            
+        currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 

@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - door
+  - goToSafe
+  - comeBackToSafeDoorWithCode
+  - goGetSafeDoorCode
+  - CollectMoney
+  - CollectMoney01
+  - CollectMoney02
+  - CollectMoney03
+  - CollectMoney04
+  - CollectMoney05
+  - CollectMoney06
+  - CollectMoney07
+  - CollectMoney08
+  - runSomeWhere
+  - Robber
+  - Destination
   layers:
   - Default
   - TransparentFX

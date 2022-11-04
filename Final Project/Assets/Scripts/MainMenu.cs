@@ -12,7 +12,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGameLikeCop()
     {
-        //SceneManager.LoadScene(1); // load the city scene
+        SceneManager.LoadScene("Scenes/RobbScene"); // load the Robb scene RobbScene
+        //Scenes/RobbScene: Scene number 4 
     }
 
     public void QuitGame()

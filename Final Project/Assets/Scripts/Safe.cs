@@ -14,6 +14,7 @@ public class Safe : MonoBehaviour
     public GameObject codePanel;
     private bool isAtDoor = false;
     public GameObject player;
+    public int robberEnter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,22 +41,21 @@ public class Safe : MonoBehaviour
 
         if(Input.GetKey(KeyCode.E) && isAtDoor == true)
         {
-           // print("hello");
             codePanel.SetActive(true);
             instructionText.SetActive(false);
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        //print("hello from trigger1");
+        if(other.CompareTag("Robber"))
+        {
+            robberEnter++;
+            if(robberEnter == 2)
+                animator.SetBool("isCodeCorrect", true);
+        }
         isAtDoor = true;
         instructionText.SetActive(true);
-        /*if (other.gameObject == player.gameObject)
-        {
-            print("hello from trigger");
-            isAtDoor = true;
-        }*/
     }
 
     private void OnTriggerExit(Collider other)

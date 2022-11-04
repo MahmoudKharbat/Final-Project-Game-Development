@@ -5,24 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    //public int maxHealth = 100;
     public static int currentHealth;
     public HealthBar healthBar;
     CharacterController cController;
     float rotationAroundY = 0;
     float rotationAroundX = 0;
     float angularSpeed = 5f;
-    float horizontalInput;
     float speed = 5f;
     public GameObject aCamera; // public means that it must be connected to some object in Unity
 
     void Start()
     {
         cController = GetComponent<CharacterController>(); // connect to Character controller of player
-        //currentHealth = maxHealth;
-        //healthBar.SetMaxHealth(maxHealth);
-        currentHealth = GlobalManager.currentHealth;
-        healthBar.SetMaxHealth(currentHealth);
+        currentHealth = GlobalManager.Instance.getHealth();
+
+        healthBar.SetMaxHealth(100);
+        healthBar.SetHealth(currentHealth);
+
     }
 
     void Update()
@@ -38,20 +37,10 @@ public class Player : MonoBehaviour
 
         // Time.deltaTime is time btween frames
         deltaz = speed * Input.GetAxis("Vertical") * Time.deltaTime; // can be {1,0,-1}
-        /*
-        if (deltaz > 0.01f && !sound.isPlaying)
-            sound.Play();
-        */
+
         Vector3 motion = new Vector3(0, -0.5f, deltaz);// always forward in Local coordinates
         motion = transform.TransformDirection(motion); // transforms motion to GLOBAL coordinates
         cController.Move(motion);// gets vector in GLOBAL coordinates
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-            //PlayerPrefs.SetInt("health", currentHealth);
-        }*/
     }
 
     public void TakeDamage(int damage)
@@ -63,7 +52,5 @@ public class Player : MonoBehaviour
             
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-    }
-
-    
+    }    
 }

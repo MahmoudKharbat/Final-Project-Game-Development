@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4543345, g: 0.5234325, b: 0.60785836, a: 1}
+  m_IndirectSpecularColor: {r: 0.4543758, g: 0.5234595, b: 0.6078744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5d8eaf8b8a9055b48aba49cf8f0f7ed1, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1898,6 +1898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58741cd94985f649a5606fe8c12ef09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 990308287}
 --- !u!1 &894363570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1700498282}
   aCamera: {fileID: 963194225}
-  game_background_music: {fileID: 71473864}
 --- !u!143 &990308290
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4366,8 +4366,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693200642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.29, y: 7.17, z: -2.66}
-  m_LocalScale: {x: 50, y: 0.1, z: 80}
+  m_LocalPosition: {x: 2.5, y: 7.1, z: -2.5}
+  m_LocalScale: {x: 40, y: 0.1, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857371580}
@@ -4406,7 +4406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cf038b03f3f9e1d42ba5554d2256b69d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

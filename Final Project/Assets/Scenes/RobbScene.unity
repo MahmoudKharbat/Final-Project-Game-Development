@@ -2881,6 +2881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58741cd94985f649a5606fe8c12ef09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &881876447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7464,7 +7465,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942393118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

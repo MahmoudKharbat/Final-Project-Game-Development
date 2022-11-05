@@ -40,6 +40,11 @@ public class GlobalManager : MonoBehaviour
         playerWins++;
         Debug.Log("Numbers Of Winnings = " + playerWins);
     }
+
+    public int getWins()
+    {
+        return playerWins;
+    }
     public int getHealth()
     {
         return currentHealth;

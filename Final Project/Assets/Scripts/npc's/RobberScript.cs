@@ -13,6 +13,7 @@ public class RobberScript : MonoBehaviour
     public GameObject player_target;
     public NavMeshAgent robber;
     public GameObject rifle;
+    public GameObject currNpc;
     private bool goToSafe = true;
     private bool goGetSafeDoorCode = true;
     private bool CollectMoney = true;
@@ -40,21 +41,20 @@ public class RobberScript : MonoBehaviour
             animator.SetInteger("state", 2);
             StartCoroutine(waitBeforeNewScene());
             // if robber is dead, cop won
-
         }
         if(!runSomeWhere && arrivedDestination)
         {
             robber.enabled = false;
             rifle.SetActive(false);
             StartCoroutine(waitBeforeNewScene());                    
+            Destroy(currNpc);
         }
     }
 
 
     IEnumerator waitBeforeNewScene()
     {
-        yield return new WaitForSeconds(5f);
-        if(health == 0) // Robber is dead.
+        if (health == 0) // Robber is dead.
         {
             GlobalManager.Instance.addWin();
             SceneManager.LoadScene("Scenes/WinTheGame");
@@ -63,6 +63,7 @@ public class RobberScript : MonoBehaviour
         {
             SceneManager.LoadScene("Scenes/GameOver");
         }
+        yield return new WaitForSeconds(0.05f);
     }
 
     private void OnTriggerEnter(Collider collision)

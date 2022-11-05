@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinTheGame.unity
     guid: 0dab5e84ff1aeaa4e979d46ca3494e51
+  - enabled: 1
+    path: Assets/Scenes/NumOfWins.unity
+    guid: de8fa42d4b9a6ef4182bc3c60400416a
   m_configObjects: {}

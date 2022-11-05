@@ -1,2 +1,2 @@
 # Final-Project-Game-Development
-![Final Project Game Development video](https://youtu.be/WOH1YcAeEk0)
+![Final Project Game Development video](https://www.youtube.com/watch?v=WOH1YcAeEk0)

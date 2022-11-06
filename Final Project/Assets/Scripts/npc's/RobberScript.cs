@@ -51,6 +51,18 @@ public class RobberScript : MonoBehaviour
         }
     }
 
+    IEnumerator waitBeforeStart()
+    {
+        yield return new WaitForSeconds(10f);
+        if (goToSafe)
+        {
+            // Safe Door Coordinate Coordinate (-9.3f, 2.51f, -3f)
+            robber.SetDestination(new Vector3(-9.3f, 0f, -3f));
+            goToSafe = false;
+            animator.SetTrigger("Start");
+            animator.SetInteger("state", 1);
+        }
+    }
 
     IEnumerator waitBeforeNewScene()
     {
@@ -71,14 +83,7 @@ public class RobberScript : MonoBehaviour
         //goToSafeDoor
         if (collision.tag == "goToSafe")
         {
-            if(goToSafe)
-            {
-                // Safe Door Coordinate Coordinate (-9.3f, 2.51f, -3f)
-                robber.SetDestination(new Vector3(-9.3f, 0f, -3f));
-                goToSafe = false;
-                animator.SetTrigger("Start");
-                animator.SetInteger("state", 1);
-            }
+            StartCoroutine(waitBeforeStart());
         }
 
         //goGetSafeDoorCode
